@@ -1,0 +1,204 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090817">
+<meta name="description" content="PixelZone Café : projet de café gaming à Nevers en préparation.">
+<title>PixelZone Café — Le gaming se retrouve ici</title>
+<style>
+:root{--bg:#090817;--panel:#15132b;--purple:#a855f7;--blue:#38bdf8;--text:#f5f3ff;--muted:#c0badb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:radial-gradient(ellipse at top right,#302052 0,transparent 45%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:#0b0919ed;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff20}
+nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-weight:950;font-size:1.1rem;letter-spacing:1px}
+.brand span{display:block;font-size:.65rem;letter-spacing:4px;color:#c4b5fd}
+.links{display:flex;align-items:center;gap:22px}
+.links a:hover{color:#67e8f9}
+.menu{display:none;background:#201936;color:white;border:1px solid #ffffff30;border-radius:10px;padding:8px 13px;font-size:1.2rem}
+.btn{display:inline-block;padding:12px 18px;border-radius:11px;background:linear-gradient(110deg,#9333ea,#2563eb);font-weight:800;border:0;color:white;cursor:pointer}
+.btn.alt{background:#ffffff0c;border:1px solid #ffffff30}
+.hero{padding:82px 0 60px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:center}
+.tag{display:inline-block;background:#8b5cf626;border:1px solid #c4b5fd55;color:#e9d5ff;border-radius:30px;padding:7px 12px;font-size:.83rem}
+h1{font-size:clamp(3rem,7vw,5.8rem);line-height:.99;letter-spacing:-4px;margin:22px 0}
+.gradient{background:linear-gradient(100deg,#d8b4fe,#818cf8,#67e8f9);background-clip:text;color:transparent}
+p{color:var(--muted)}
+.hero p{font-size:1.08rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}
+.visual{min-height:390px;border:1px solid #a78bfa66;border-radius:25px;padding:24px;display:flex;align-items:end;background:linear-gradient(0deg,#090817 0%,#09081720 100%),url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1000&q=85') center/cover;box-shadow:0 0 60px #7c3aed22}
+.visual div{background:#100d25e8;border:1px solid #ffffff30;padding:20px;border-radius:16px}
+.visual h2{margin:0}
+.notice{text-align:center;padding:18px;background:#8b5cf61b;border-block:1px solid #ffffff18}
+section{padding:70px 0}
+h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.1;letter-spacing:-1.5px;margin:12px 0}
+.intro{max-width:700px;margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{background:linear-gradient(145deg,#211b3b,#121024);border:1px solid #ffffff20;border-radius:17px;padding:22px}
+.emoji{font-size:2rem}
+.card h3{margin:10px 0}
+.card p{font-size:.93rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.price{font-size:1.8rem;font-weight:900;color:#d8b4fe}
+ul{padding-left:20px;color:var(--muted)}
+.event{margin:12px 0}
+.cta{background:linear-gradient(130deg,#261446,#101a35);padding:30px;border:1px solid #a78bfa55;border-radius:22px}
+form{display:grid;gap:13px;max-width:650px}
+label{font-weight:650}
+input,select,textarea{width:100%;padding:12px;border-radius:9px;border:1px solid #ffffff35;background:#0b091b;color:white;margin-top:5px;font:inherit}
+textarea{min-height:100px}
+.check{display:flex;gap:10px;align-items:start;font-weight:400}
+.check input{width:auto;margin-top:7px}
+small{color:var(--muted)}
+footer{border-top:1px solid #ffffff20;padding:28px 0;margin-top:30px;font-size:.9rem}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.hero-grid,.split{grid-template-columns:1fr}.visual{min-height:300px}}
+@media(max-width:650px){
+ .menu{display:block}
+ .links{display:none;position:absolute;top:71px;left:0;right:0;padding:20px;background:#0b0919;flex-direction:column;align-items:stretch;border-bottom:1px solid #ffffff25}
+ .links.open{display:flex}
+ .hero{padding:48px 0 35px}
+ h1{letter-spacing:-2px}
+ section{padding:50px 0}
+ .grid{grid-template-columns:1fr 1fr;gap:10px}
+ .card{padding:15px}
+ .visual{min-height:260px}
+}
+@media(max-width:380px){.grid{grid-template-columns:1fr}.actions .btn{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+<header>
+ <nav class="wrap">
+  <a class="brand" href="#accueil">PIXELZONE<span>CAFÉ · NEVERS</span></a>
+  <button class="menu" id="menuBtn" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+  <div class="links" id="navLinks">
+   <a href="#concept">Le concept</a>
+   <a href="#univers">Les univers</a>
+   <a href="#tarifs">Tarifs envisagés</a>
+   <a href="#evenements">Événements</a>
+   <a href="#contact">Contact</a>
+  </div>
+ </nav>
+</header>
+<main>
+<section class="hero" id="accueil">
+ <div class="wrap hero-grid">
+  <div>
+   <span class="tag">⚡ Projet en préparation · Nevers</span>
+   <h1>Le gaming<br>se retrouve <span class="gradient">ici.</span></h1>
+   <p>Imagine un lieu convivial autour du jeu vidéo, de l'arcade rétro, des mangas et de la détente. PixelZone Café se construit : aide-nous à imaginer le futur spot gaming de la Nièvre !</p>
+   <div class="actions">
+    <a class="btn" href="#univers">Découvrir le concept ↓</a>
+    <a class="btn alt" href="#contact">Suivre le projet</a>
+   </div>
+   <small>Pas encore ouvert · Local et date d'ouverture à confirmer.</small>
+  </div>
+  <div class="visual"><div><h2>Plus qu'un espace gaming.</h2><p>Un futur lieu pour jouer, découvrir et partager sa passion.</p></div></div>
+ </div>
+</section>
+<div class="notice">✨ <strong>Le projet est en construction.</strong> Les équipements, tarifs et horaires restent à confirmer.</div>
+<section id="univers">
+ <div class="wrap">
+  <div class="intro"><span class="tag">L'expérience PixelZone</span><h2>Quatre univers.<br><span class="gradient">Une communauté.</span></h2><p>Le concept envisagé rassemble plusieurs façons de profiter de la culture gaming dans une ambiance accueillante.</p></div>
+  <div class="grid">
+   <article class="card"><div class="emoji">🎮</div><h3>Gaming Zone</h3><p>Des postes PC et des consoles pour jouer en solo ou retrouver ses amis.</p></article>
+   <article class="card"><div class="emoji">🕹️</div><h3>Arcade rétro</h3><p>Redécouvrir les classiques du jeu vidéo et se lancer des défis.</p></article>
+   <article class="card"><div class="emoji">📚</div><h3>Coin lecture</h3><p>Mangas, comics et univers imaginaires pour une pause plus calme.</p></article>
+   <article class="card"><div class="emoji">☕</div><h3>Bar & snacks</h3><p>Boissons et petites pauses entre deux parties, selon les possibilités du projet.</p></article>
+  </div>
+ </div>
+</section>
+<section id="concept">
+ <div class="wrap split">
+  <div><span class="tag">Un projet local</span><h2>Un endroit pour <span class="gradient">se retrouver.</span></h2><p>PixelZone Café veut devenir un lieu de rencontre pour les passionnés, les curieux, les groupes d'amis et les familles à Nevers.</p>
+   <ul><li>Des expériences solo et multijoueur.</li><li>Des univers gaming actuels et rétro.</li><li>Des rencontres et activités communautaires.</li><li>Un projet construit à partir des retours des habitants.</li></ul>
+  </div>
+  <div class="card"><div class="emoji">💜</div><h3>Construisons le projet ensemble</h3><p>Ton avis peut aider à définir les activités prioritaires, les équipements utiles et les événements qui intéresseraient la communauté.</p><a class="btn" href="#contact">Donner mon avis</a></div>
+ </div>
+</section>
+<section id="tarifs">
+ <div class="wrap">
+  <div class="intro"><span class="tag">Pistes de travail</span><h2>Des tarifs <span class="gradient">à imaginer.</span></h2><p>Ces montants sont indicatifs et non définitifs. Ils devront être étudiés en fonction du local, des charges et du matériel retenu.</p></div>
+  <div class="grid">
+   <article class="card"><h3>Session gaming</h3><div class="price">3,50 € / h</div><p>Hypothèse de tarif horaire, à confirmer.</p></article>
+   <article class="card"><h3>Pass communauté</h3><div class="price">49 € / mois</div><p>Piste d'abonnement pour les joueurs réguliers, à étudier.</p></article>
+   <article class="card"><h3>Arcade rétro</h3><div class="price">À définir</div><p>Le tarif dépendra du matériel et du fonctionnement choisi.</p></article>
+   <article class="card"><h3>Boissons & snacks</h3><div class="price">À définir</div><p>Une offre à construire selon la faisabilité du projet.</p></article>
+  </div>
+  <p><small>Aucune réservation ni vente n'est ouverte à ce stade.</small></p>
+ </div>
+</section>
+<section id="evenements">
+ <div class="wrap">
+  <div class="intro"><span class="tag">À l'étude</span><h2>Des rendez-vous <span class="gradient">à imaginer.</span></h2><p>Aucun événement n'est actuellement programmé. Voici quelques idées possibles.</p></div>
+  <div class="grid">
+   <article class="card"><div class="emoji">🏆</div><h3>Tournois gaming</h3><p>Des rencontres amicales autour de jeux compétitifs.</p></article>
+   <article class="card"><div class="emoji">👾</div><h3>Soirées rétro</h3><p>Redécouvrir les jeux qui ont marqué plusieurs générations.</p></article>
+   <article class="card"><div class="emoji">🤝</div><h3>Rencontres</h3><p>Des activités communautaires et partenariats locaux.</p></article>
+   <article class="card"><div class="emoji">🛠️</div><h3>Numérique</h3><p>Un éventuel volet diagnostic et assistance informatique reste à étudier.</p></article>
+  </div>
+ </div>
+</section>
+<section id="contact">
+ <div class="wrap cta">
+  <span class="tag">Rejoindre l'aventure</span>
+  <h2>Fais partie de la communauté <span class="gradient">PixelZone.</span></h2>
+  <p>Dis-nous ce que tu aimerais trouver dans un futur lieu gaming à Nevers. Le formulaire prépare un e-mail : il ne transmet rien automatiquement.</p>
+  <form id="interestForm">
+   <label>Comment souhaites-tu participer ?
+    <select name="interest" required>
+     <option value="">Choisir une option</option>
+     <option>Être informé de l'ouverture</option>
+     <option>Donner mon avis sur les activités</option>
+     <option>Proposer un partenariat</option>
+     <option>Participer à de futurs événements</option>
+     <option>Poser une question</option>
+    </select>
+   </label>
+   <label>Ton prénom (facultatif)<input name="name" placeholder="Prénom"></label>
+   <label>Ton e-mail (facultatif)<input name="email" type="email" placeholder="toi@exemple.fr"></label>
+   <label>Ton message<textarea name="message" placeholder="Ce que tu aimerais voir chez PixelZone…"></textarea></label>
+   <label class="check"><input type="checkbox" name="consent" required>J'accepte que ces informations soient utilisées pour répondre à mon message.</label>
+   <button class="btn" type="submit">Préparer mon e-mail ↗</button>
+   <small>Vérifie le message dans ton application e-mail avant de l'envoyer.</small>
+  </form>
+ </div>
+</section>
+</main>
+<footer><div class="wrap">
+ <strong>PIXELZONE CAFÉ · NEVERS</strong>
+ <p>Projet en préparation. Le lieu n'est pas ouvert. Visuels d'ambiance illustratifs. Tarifs, équipements et activités prévisionnels.</p>
+ <small>© <span id="year"></span> PixelZone Café</small>
+</div></footer>
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>{
+ const open=menuBtn.getAttribute('aria-expanded')!=='true';
+ menuBtn.setAttribute('aria-expanded',String(open));
+ menuBtn.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');
+ menuBtn.textContent=open?'✕':'☰';
+ navLinks.classList.toggle('open',open);
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+ navLinks.classList.remove('open');
+ menuBtn.setAttribute('aria-expanded','false');
+ menuBtn.textContent='☰';
+}));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('interestForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const f=new FormData(e.currentTarget);
+ if(!f.get('consent'))return;
+ const subject=encodeURIComponent('PixelZone Café — '+f.get('interest'));
+ const body=encodeURIComponent('Bonjour,\n\nJe souhaite : '+f.get('interest')+'\nPrénom : '+(f.get('name')||'Non renseigné')+'\nE-mail : '+(f.get('email')||'Non renseigné')+'\n\nMessage :\n'+(f.get('message')||'Aucun message ajouté'));
+ window.location.href='mailto:pixelzonecafe@gmail.com?subject='+subject+'&body='+body;
+});
+</script>
+</body>
+</html>
