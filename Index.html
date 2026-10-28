@@ -329,7 +329,13 @@ footer{padding:35px 0;border-top:1px solid var(--border)}
       </div>
       <div class="card">
         <h3>Donner mon avis</h3>
-        <form id="idea-form">
+        <form
+  id="idea-form"
+  name="idees-pixelzone"
+  method="POST"
+  data-netlify="true"
+>
+  <input type="hidden" name="form-name" value="idees-pixelzone">
           <div>
             <label for="name">Prénom (facultatif)</label>
             <input id="name" name="name" maxlength="60" placeholder="Ton prénom">
